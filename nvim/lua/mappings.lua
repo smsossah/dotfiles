@@ -63,6 +63,31 @@ map('n', '<A-6>', '<Cmd>BufferGoto 6<CR>', opts)
 map('n', '<A-7>', '<Cmd>BufferGoto 7<CR>', opts)
 map('n', '<A-8>', '<Cmd>BufferGoto 8<CR>', opts)
 map('n', '<A-0>', '<Cmd>BufferLast<CR>', opts)
+  -- nmap <buffer> <Undo> <Plug>(calendar_undo) -- calendar
+  -- nmap <buffer> u <Plug>(calendar_undo)
+  -- nmap <buffer> U <Plug>(calendar_undo_line)
+  -- nmap <buffer> <TAB> <Plug>(calendar_tab)
+  -- nmap <buffer> <S-Tab> <Plug>(calendar_shift_tab)
+  -- nmap <buffer> n <Plug>(calendar_next_match)
+  -- nmap <buffer> N <Plug>(calendar_prev_match)
+  -- nmap <buffer> t <Plug>(calendar_today)
+  -- nmap <buffer> <CR> <Plug>(calendar_enter)
+  -- nmap <buffer> <C-a> <Plug>(calendar_add)
+  -- nmap <buffer> <C-x> <Plug>(calendar_subtract)
+  -- nmap <buffer> <C-g> <Plug>(calendar_status)
+  -- nmap <buffer> + <Plug>(calendar_plus)
+  -- nmap <buffer> - <Plug>(calendar_minus)
+  -- nmap <buffer> T <Plug>(calendar_task)
+  -- nmap <buffer> E <Plug>(calendar_event)
+  -- nmap <buffer> < <Plug>(calendar_view_left)
+  -- nmap <buffer> > <Plug>(calendar_view_right)
+  -- nmap <buffer> <Space> <Plug>(calendar_space)
+  -- nmap <buffer> <C-l> <Plug>(calendar_redraw)
+  -- nmap <buffer> <C-r> <Plug>(calendar_redraw)
+  -- nmap <buffer> L <Plug>(calendar_clear)
+  -- nmap <buffer> ? <Plug>(calendar_help)
+  -- nmap <buffer> q <Plug>(calendar_hide)
+  -- nmap <buffer> Q <Plug>(calendar_exit)
 
 local mappings = {
     ["<leader>f"] = {
@@ -78,12 +103,15 @@ local mappings = {
             r  = {"<cmd>Telescope oldfiles<cr>", "Open Recent File"},
             R  = {"<cmd>Telescope registers<cr>", "Find Registers"},
             w  = {"<cmd>Telescope live_grep<cr>", "Find Word"},
+            i  = {"<cmd>Telescope highlights<cr>", "Find Word"},
         },
     ["<leader>n"] = {
             name = "Nvim Tree",
             f = {"<cmd>NvimTreeFocus<cr>", "Tree Focus"},
             s = {"<cmd>NvimTreeFindFile<cr>", "Tree Find File"},
             c = {"<cmd>NvimTreeCollapse<cr>", "Tree Collapse"},
+            i = {"<cmd>Neorg index<cr>", "Navigate to neorg index"},
+            r = {"<cmd>Neorg return<cr>", "Return from neorg to code"},
     },
     ["<leader>d"] = {
             name = "Debug",
@@ -136,6 +164,7 @@ local mappings = {
             name = "Resize Window/Change Workspace",
             a = { "<cmd>WorkspacesOpen antilles<cr>", "open antilles workspace" },
             c = { "<cmd>WorkspacesOpen caliper-api<cr>", "open caliper api workspace" },
+            t = { "<cmd>WorkspacesOpen training<cr>", "open caliper api workspace" },
             v = { "<cmd>WorkspacesOpen nvim<cr>", "open nvim configs workspace" },
             h = {"<cmd>vertical resize +5<cr>", "Increase vertical window size by 5"},
             l = {"<cmd>vertical resize -5<cr>", "Decrease vertical window size by 5"},
@@ -155,7 +184,15 @@ local mappings = {
     },
     ["<leader>"]  = {
             name = "Calendar",
-            c = {"<cmd>Calendar<cr>", "open calendar"},
+            cc = {"<cmd>Calendar -view=week<cr>", "open calendar"},
+            c = {"<cmd>Calendar -view=week -split=horizontal -position=below -height=18<cr>", "open small calendar"},
+        },
+    ["<leader>p"]  = {
+            name = "Packer Utilities",
+            l = {"<cmd>luafile %<cr>", "save luafile"},
+            p = {"<cmd>PackerSync<cr>", "packer sync"},
+            c = {"<cmd>PackerClean<cr>", "packer clean"},
+            u = {"<cmd>PackerUpdate<cr>", "packer update"},
         }
 }
 

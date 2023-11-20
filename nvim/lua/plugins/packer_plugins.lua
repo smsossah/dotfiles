@@ -4,6 +4,7 @@ require("packer").startup(function(use)
         -- colorscheme
         "rmehri01/onenord.nvim",
         { "catppuccin/nvim", as="catppuccin" },
+        "Mofiqul/vscode.nvim",
 
         -- debugging
         "mfussenegger/nvim-dap-python",
@@ -26,9 +27,9 @@ require("packer").startup(function(use)
 
         -- COC
 	    { "neoclide/coc.nvim", branch = "release" },                                                        -- (ruff, sql, json, pyright, db)
-
+        "tpope/vim-speeddating",                                                                            -- incrementing numbers and dates
         "folke/which-key.nvim",                                                                             -- displays popup of possible key bindings
-        { "itchyny/calendar.vim", cmd = { "Calendar" } },                                                   -- calendar
+        {"itchyny/calendar.vim"},                                                                           -- keep track of dates, tasks, and events
         "folke/twilight.nvim",                                                                              -- dims inactive code
 		"xiyaowong/transparent.nvim",                                                                       -- changes background to transparent
         "rcarriga/nvim-notify",                                                                             -- notification manager
@@ -50,22 +51,26 @@ require("packer").startup(function(use)
 		{ "natecraddock/workspaces.nvim", config = function() require("workspaces").setup() end },          -- easy workspace navigation & search
 		{ "nvim-neorg/neorg", run = ":Neorg sync-parsers" },                                                -- notes
 		{ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },                                           -- syntax highlighting
-        { 'lukas-reineke/headlines.nvim',  -- adds highlights for Neorg and markdown
-            ft = { "markdown", "org", "norg" },
-            after = 'nvim-treesitter',
-            config = function()
-                require('headlines').setup(
-                {
-                    norg = {
-                        headline_highlights = {
-                            "Headline1",
-                            "Headline2",
-                        }
-                    }
-                }
-                )
-            end,
-        },
+		 "nvim-treesitter/playground",                                           -- syntax highlighting
+        -- { "lukas-reineke/headlines.nvim",  -- adds highlights for Neorg and markdown
+        --     ft = { "markdown", "org", "norg" },
+        --     after = 'nvim-treesitter',
+        --     config = function()
+        --         require('headlines').setup(
+        --         {
+        --             norg = {
+        --                 headline_highlights = {
+        --                     "Headline1",
+        --                     "Headline2",
+        --                     "Headline3",
+        --                 },
+        --                 -- fat_headline_lower_string = "▃",
+        --                 fat_headline_lower_string = " ",
+        --             }
+        --         }
+        --         )
+        --     end,
+        -- },
 		{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },                                       -- FZF fuzzy file finder
 		{ "nvim-telescope/telescope.nvim", requires = { { "nvim-lua/plenary.nvim" } } },                    -- content fuzzy finder
 		{ "cappyzawa/trim.nvim", config = function() require("trim").setup({}) end },                       -- improved whitespace handling

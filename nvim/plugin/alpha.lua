@@ -8,7 +8,6 @@ local icon_val = {
     "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
     "                                                     ",
 }
-
 local status_ok, alpha = pcall(require, "alpha")
 if not status_ok then
  return
@@ -21,12 +20,16 @@ dashboard.section.header.val = icon_val
    dashboard.button("e",  "  New file", ":ene <BAR> startinsert <CR>"),
    dashboard.button("r",  "  Recently used files", ":Telescope oldfiles <CR>"),
    dashboard.button("f",  "󰈞  Find file", ":Telescope find_files <CR>"),
-   dashboard.button("t",  "󰈬  Find word", ":Telescope live_grep <CR>"),
-   dashboard.button("b",  "  Jump to Bookmarks", "<leader>fm<CR>"),
-   dashboard.button("s",  "  Change colorscheme", ":qa<CR>"),
-   dashboard.button("s",  "  Calendar", ":Calendar<CR>"),
-   dashboard.button("c",  "  Configuration", ":e ~/.config/nvim/init.vim<CR>"),
+   dashboard.button("w",  "󰈬  Find word", ":Telescope live_grep <CR>"),
+   dashboard.button("b",  "  Jump to bookmarks", "<leader>fm<CR>"),
+   dashboard.button("s",  "  Change colorscheme", ":ChangeColorScheme<CR>"),
+   dashboard.button("i",  "  Toggle transparency", ":ChangeColorScheme<CR>"),
+   dashboard.button("c",  "  Calendar", ":Calendar -view=week -split=horizontal -position=below -height=18<CR>"),
+   dashboard.button("g",  "  Configuration", ":e ~/.config/nvim/init.lua<CR>"),
    dashboard.button("p",  "  Plugins", ":e ~/.config/nvim/lua/plugins/packer_plugins.lua<CR>"),
+   dashboard.button("h",  "  Plugin help", ":SearchPluginHelp<CR>"),
+   dashboard.button("t",  "ﮧ  Tutor", ":Tutor<CR>"),
+   dashboard.button("n",  "  Notes", ":Neorg index<CR>"),
    dashboard.button("q",  "  Quit Neovim", ":qa<CR>"),
 } --  󰷾   󰄉 󰅚
 
